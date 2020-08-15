@@ -1,0 +1,9 @@
+{% load static %}
+{% for img in images %}	
+
+<!--<img src="{{img.pic.url}}" alt="">	-->
+sam
+<img src="{% static 'images/index_1.jpg' %}" alt="">
+{{img.description}}
+{% endfor %}
+

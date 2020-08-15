@@ -1,0 +1,16 @@
+{% extends 'classblog/base.html' %}
+
+{% block breadcrumb %}{{ block.super }} > Admin page > New Post{% endblock %}
+
+{% block content %}
+<h1>POST_FORM.HTML of classblog</h1>
+    <div class="form">
+        <form method="POST" novalidate>
+           {% csrf_token %}
+           {{form.as_p}}
+           
+            <p><input type="submit" value="Submit"></p> 
+        </form>
+    </div>
+
+{% endblock %}

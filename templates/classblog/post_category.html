@@ -1,0 +1,32 @@
+{% extends 'classblog/base.html' %}
+
+{% block content %}
+<div>
+    <h3>{{category}} category</h3>
+</div>
+
+<p>classblog home</p>
+    {% for post in posts %}
+    
+    <div class="blog-item">
+        <h2><a href="{% url 'postDetails' post.pk %}">{{post.title}}</a></h2>
+        <div class="info">
+            
+            By <span><a href="#">{{post.auther}}</a></span> | In <span><a href="#">{{post.category}}</a></span> | On <span>{{post.pub_date}}</span> | &#x1f441 <span>{{post.view_count}}</span> 
+        </div>
+        <p>
+            {{post.content}}
+        </p>
+        <br><br>
+        {{post.pk}}
+    </div>
+    {% empty %}
+    <div>
+        <h3>There are no posts yet</h3>
+    </div>
+    {% endfor %}
+
+
+    {% include 'classblog/pagination_links.html' %}
+
+{% endblock %}

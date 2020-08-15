@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Languages</title>
+</head>
+<body>
+    {% for msg in messages %}
+    <h1>{{msg}}</h1>
+    {% endfor %}
+    <form method="POST" novalidate>
+        {% if user.is_authenticated %}
+        <h2><a href="{% url 'logout' %}">Logout</a></h2>
+        {% else %}
+        <h2><a href="{% url 'viewa' %}">Login</a></h2>
+        {% endif %} 
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="submit"> 
+        <br><br>
+        
+    </form>
+    {% for p in post %}
+    <p><a href="{%url 'UpdateView' p.pk %}">Update</a></p>{{p.name}}
+    
+    {% endfor %}
+    <!--<form > 
+
+        {% csrf_token %}
+        Existing Languages: {{languages}}
+        <input type="submit" value="Existing languages">
+    </form>-->
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homes</title>
+</head>
+<body>
+    {{c}}
+    <form method="post" action="posts"> 
+        {% csrf_token %}
+       movie_name <input type="text", placeholder="movie name">
+       type       <input type="text", placeholder="type">
+                  <input type="submit", value="Submit">
+                  {{temp}}  
+                  <br><br>
+                </form> 
+            <form action="gets"></form> 
+                          
+                  <input type="submit", value="Get the movie name"> 
+                  {{data1}}
+                  {{d}}
+                  
+                </form>
+    
+    </script>
+
+</body>
+</html>
