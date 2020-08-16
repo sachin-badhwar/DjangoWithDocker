@@ -1,2 +1,4 @@
 Django==3.0
 gunicorn==20.0.4
+psycopg2-binary==2.8.3
+pillow==7.2.0
