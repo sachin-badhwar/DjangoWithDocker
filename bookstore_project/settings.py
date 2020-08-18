@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 'users.apps.UsersConfig', # new
 ]
 
+
 AUTH_USER_MODEL = 'users.CustomUser' # new
 
 MIDDLEWARE = [

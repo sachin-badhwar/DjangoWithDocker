@@ -23,7 +23,7 @@ class CustomUserTest(TestCase):
             username = 'superadmin',
             password = '1234',
             email = 'superadmin@email.com'
-        )
+        )  
         self.assertEqual(adminUser.username,'superadmin')
         self.assertEqual(adminUser.email,'superadmin@email.com')
         self.assertTrue(user.is_staff)
