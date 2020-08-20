@@ -37,12 +37,42 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # new
+    # Third-party
+    'crispy_forms', # new
+    'allauth', # new
+    'allauth.account', # new
     # Local
 'users.apps.UsersConfig', # new
+'pages.apps.PagesConfig',
 ]
 
+# django-allauth config
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home' # new
+SITE_ID = 1 # new
+AUTHENTICATION_BACKENDS = (
+'django.contrib.auth.backends.ModelBackend',
+'allauth.account.auth_backends.AuthenticationBackend', # new
+)
+# email to output to the console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new, This is for email confirmation.
+
+ACCOUNT_SESSION_REMEMBER = True # new, remove the remember me box from login page.
+ACCOUNT_AUTHENTICATION_METHOD = 'email' # new , default - username for login.
+ACCOUNT_USERNAME_REQUIRED = False # new , now username will not be asked while signup.
+ACCOUNT_EMAIL_REQUIRED = True # new  , now email is not optional during signup.
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # new, Now password will only be asked once while signup.
+ACCOUNT_UNIQUE_EMAIL = True # new , email can not be existing one during sign up.
+
+
+
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # new
 
 AUTH_USER_MODEL = 'users.CustomUser' # new
+
+LOGOUT_REDIRECT_URL = 'home' # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,7 +89,7 @@ ROOT_URLCONF = 'bookstore_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,3 +164,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # new
+'''
+The last setting is STATICFILES_FINDERS which tells Django how to look for static
+file directories. It is implicitly set for us
+STATICFILES_FINDERS = [
+"django.contrib.staticfiles.finders.FileSystemFinder",
+"django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
+'''
