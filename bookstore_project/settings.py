@@ -15,12 +15,14 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SECRET_KEY = 'vk--7_b7m2f!-vi@v%fh@54bybp3k!$-+)xi7-www)n4pvtipy'
+SECRET_KEY = os.environ.get('SECRET_KEY') 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'vk--7_b7m2f!-vi@v%fh@54bybp3k!$-+)xi7-www)n4pvtipy'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,7 +87,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+
 DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
 ROOT_URLCONF = 'bookstore_project.urls'
 
@@ -180,3 +182,4 @@ STATICFILES_FINDERS = [
 '''
 MEDIA_URL = '/media/' # new
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new
+

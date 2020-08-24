@@ -29,3 +29,4 @@ urlpatterns = [
     path('accounts/', include('users.urls')), # new
     path('books/', include('books.urls')), # new
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+

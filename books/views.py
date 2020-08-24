@@ -11,6 +11,7 @@ class BookListView(ListView):
     def get_queryset(self):
         return Book.objects.all()
 
+
 class BookDetailView(DetailView):
     model = Book
     context_object_name = 'book'

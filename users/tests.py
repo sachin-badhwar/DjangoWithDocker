@@ -63,3 +63,4 @@ class SignupPageTests(TestCase):
         )
         print('name check ',SignupPageView.as_view().__name__)
 
+
