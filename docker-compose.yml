@@ -2,7 +2,8 @@ version: '3'
 services:
     web:
         image: mycn2:latest
-        
+        environment:
+            - SECRET_KEY=p_o3vp1rg5)t^lxm9-43%0)s-=1qpeq%o7gfq+e4#*!t+_ev82    
         volumes:
             - .:/code
         ports:
@@ -14,9 +15,12 @@ services:
         environment:
             - POSTGRES_PASSWORD=postgres
             - POSTGRES_USER=postgres
+        ports:
+            - 5432:5432    
         volumes:
-            - postgres_data:/var/lib/postgresql/data/
+            - books_postgres_data:/var/lib/postgresql/data/
 volumes:
-    postgres_data:        
+    books_postgres_data:
+        external: true # this is to use the existing created volume       
 
     

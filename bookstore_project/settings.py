@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Local
 'users.apps.UsersConfig', # new
 'pages.apps.PagesConfig',
+'books.apps.BooksConfig',
 ]
 
 # django-allauth config
@@ -84,6 +85,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
 ROOT_URLCONF = 'bookstore_project.urls'
 
 TEMPLATES = [
@@ -175,3 +178,5 @@ STATICFILES_FINDERS = [
 ]
 
 '''
+MEDIA_URL = '/media/' # new
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new

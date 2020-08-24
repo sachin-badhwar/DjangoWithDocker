@@ -12,6 +12,8 @@ django-crispy-forms = "==1.8.0"
 pandas = "*"
 ansible-lint = "*"
 django-allauth = "==0.40.0"
+regex = "*"
+pillow = "==6.2.1"
 
 [requires]
 python_version = "3.8"
